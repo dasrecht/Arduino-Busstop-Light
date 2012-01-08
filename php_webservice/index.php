@@ -18,6 +18,12 @@ $url ='http://fahrplan.search.ch/bern,aeussere-enge/bern'; // Get the timetable 
 
 $html = file_get_html($url);
 
+// if there's a error returned in our query return error and the message and exit
+if ($html->find('div.sl_warning', 0)){
+	echo "error - " . $html->find('div.sl_warning', 0)->plaintext;
+	exit;
+}
+
 // calculate next busstop
 foreach($html->find('span.oev_printbold') as $e)	//Get the First DIV with StartData
 {
