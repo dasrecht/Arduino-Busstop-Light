@@ -22,7 +22,7 @@ if ($html->find('div.sl_warning', 0)) {
 }
 
 // calculate next busstop
-foreach ($html->find('span.oev_printbold') as $e) //Get the First DIV with StartData {
+foreach ($html->find('span.oev_printbold') as $e) {//Get the First DIV with StartData 
     $nextbus = strtotime(substr(trim($e->innertext), 0, 5)); // Strip unneccesary data and convert to a timestamp
     $now
     = strtotime(date("G:i")); // Create a timestamp reflecting the current time
