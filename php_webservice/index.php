@@ -29,6 +29,7 @@ $diff = $nextbus - $now;				// calculate the difference for the events
 
 
 if ($diff < $walkingtime) {
+	if ($diff < 0) {continue;}			// if we get a negative value of time (can happen if the server time is not 100% accurate) skip this result and wait for the next bus
   echo "red - " . $diff;
 }
   else
